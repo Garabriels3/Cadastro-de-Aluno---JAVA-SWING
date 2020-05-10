@@ -517,6 +517,18 @@ public class CadAlunoView extends JFrame {
 				try {
 					controller.cadAlunoBD(RGM, nome, dtNasc, CPF, email, endereco, municipio, uf, celular, curso, campus, periodo);
 					System.out.println("PASSOU DA VIEW");
+					txtRGM.setText("");
+					txtNome.setText("");
+					ftmDataNascimento.setText("");
+					ftmCPF.setText("");
+					txtEmail.setText("");
+					txtEndereco.setText("");
+					txtMunicipio.setText("");
+					ftmCep.setText("");
+					cbUF.setSelectedIndex(0);
+					ftmCelular.setText("");
+					cbCurso.setSelectedIndex(0);
+					cbCampus.setSelectedIndex(0);
 					lerTabela();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -578,6 +590,18 @@ public class CadAlunoView extends JFrame {
 				
 				try {
 					controller.deletarDados(RGM);
+					txtRGM.setText("");
+					txtNome.setText("");
+					ftmDataNascimento.setText("");
+					ftmCPF.setText("");
+					txtEmail.setText("");
+					txtEndereco.setText("");
+					txtMunicipio.setText("");
+					ftmCep.setText("");
+					cbUF.setSelectedIndex(0);
+					ftmCelular.setText("");
+					cbCurso.setSelectedIndex(0);
+					cbCampus.setSelectedIndex(0);
 					lerTabela();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -615,6 +639,18 @@ public class CadAlunoView extends JFrame {
 				
 				try {
 					controller.alteraBD(RGM, nome, dtNasc, CPF, email, endereco, municipio, uf, celular, curso, campus, periodo);
+					txtRGM.setText("");
+					txtNome.setText("");
+					ftmDataNascimento.setText("");
+					ftmCPF.setText("");
+					txtEmail.setText("");
+					txtEndereco.setText("");
+					txtMunicipio.setText("");
+					ftmCep.setText("");
+					cbUF.setSelectedIndex(0);
+					ftmCelular.setText("");
+					cbCurso.setSelectedIndex(0);
+					cbCampus.setSelectedIndex(0);
 					lerTabela();
 
 				} catch (Exception e1) {
@@ -806,6 +842,18 @@ public class CadAlunoView extends JFrame {
 				try {
 					controller.cadAlunoBD(RGM, nome, dtNasc, CPF, email, endereco, municipio, uf, celular, curso, campus, periodo);
 					System.out.println("PASSOU DA VIEW");
+					txtRGM.setText("");
+					txtNome.setText("");
+					ftmDataNascimento.setText("");
+					ftmCPF.setText("");
+					txtEmail.setText("");
+					txtEndereco.setText("");
+					txtMunicipio.setText("");
+					ftmCep.setText("");
+					cbUF.setSelectedIndex(0);
+					ftmCelular.setText("");
+					cbCurso.setSelectedIndex(0);
+					cbCampus.setSelectedIndex(0);
 					lerTabela();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -843,6 +891,18 @@ public class CadAlunoView extends JFrame {
 					
 					try {
 						controller.alteraBD(RGM, nome, dtNasc, CPF, email, endereco, municipio, uf, celular, curso, campus, periodo);
+						txtRGM.setText("");
+						txtNome.setText("");
+						ftmDataNascimento.setText("");
+						ftmCPF.setText("");
+						txtEmail.setText("");
+						txtEndereco.setText("");
+						txtMunicipio.setText("");
+						ftmCep.setText("");
+						cbUF.setSelectedIndex(0);
+						ftmCelular.setText("");
+						cbCurso.setSelectedIndex(0);
+						cbCampus.setSelectedIndex(0);
 						lerTabela();
 
 					} catch (Exception e1) {
@@ -902,9 +962,22 @@ public class CadAlunoView extends JFrame {
 
 				instance = ServiceLocator.getInstance();
 				controller = (AlunoController) instance.uniqueInstance("AlunoController");
+			
 				
 				try {
 					controller.deletarDados(RGM);
+					txtRGM.setText("");
+					txtNome.setText("");
+					ftmDataNascimento.setText("");
+					ftmCPF.setText("");
+					txtEmail.setText("");
+					txtEndereco.setText("");
+					txtMunicipio.setText("");
+					ftmCep.setText("");
+					cbUF.setSelectedIndex(0);
+					ftmCelular.setText("");
+					cbCurso.setSelectedIndex(0);
+					cbCampus.setSelectedIndex(0);
 					lerTabela();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
