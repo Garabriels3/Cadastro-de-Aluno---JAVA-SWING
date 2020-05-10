@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-12">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="src/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="lib" path="commons-codec-1.11.jar"/>
+	<classpathentry kind="lib" path="commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="fluent-hc-4.5.12.jar"/>
+	<classpathentry kind="lib" path="httpclient-4.5.12.jar"/>
+	<classpathentry kind="lib" path="httpclient-cache-4.5.12.jar"/>
+	<classpathentry kind="lib" path="httpclient-osgi-4.5.12.jar"/>
+	<classpathentry kind="lib" path="httpclient-win-4.5.12.jar"/>
+	<classpathentry kind="lib" path="httpcore-4.4.13.jar"/>
+	<classpathentry kind="lib" path="httpmime-4.5.12.jar"/>
+	<classpathentry kind="lib" path="jna-4.5.2.jar"/>
+	<classpathentry kind="lib" path="jna-platform-4.5.2.jar"/>
+	<classpathentry kind="lib" path="gson-2.8.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
