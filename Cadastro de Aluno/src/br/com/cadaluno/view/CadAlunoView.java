@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.MaskFormatter;
 
+import br.com.cadaluno.DI.ServiceLocator;
 import br.com.cadaluno.controller.AlunoController;
 import br.com.cadaluno.controller.BoletimController;
 import br.com.cadaluno.controller.NotasFaltasController;
@@ -62,7 +63,7 @@ public class CadAlunoView extends JFrame {
 	NotasFaltasController controllerNotas;
 	private JTable boletimTable;
 	private JTextField txtBusca;
-
+	ServiceLocator instance;
 
 
 	/**
@@ -147,7 +148,7 @@ public class CadAlunoView extends JFrame {
 		JMenuItem mntmSobre = new JMenuItem("Sobre");
 		mntmSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				openURL("https://www.google.com/");
+				openURL("https://github.com/Garabriels3/Cadastro-de-Aluno---JAVA-SWING/tree/master");
 			}
 		});
 		mnAjuda.add(mntmSobre);
@@ -488,7 +489,8 @@ public class CadAlunoView extends JFrame {
 		// MARK: METHODS ALUNO E CURSO
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				String periodo;
 				
 				String RGM = txtRGM.getText();
@@ -528,7 +530,8 @@ public class CadAlunoView extends JFrame {
 			   String RGM = null;
 			   RGM = txtRGM.getText();
 			   System.out.println(RGM);
-			   AlunoController controller = new AlunoController();
+			   instance = ServiceLocator.getInstance();
+			   controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				
 				try {
 					
@@ -570,8 +573,8 @@ public class CadAlunoView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String RGM = null;
 				RGM = txtRGM.getText();
-
-				AlunoController controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				
 				try {
 					controller.deletarDados(RGM);
@@ -585,7 +588,8 @@ public class CadAlunoView extends JFrame {
 		
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				String periodo;
 				
 				String RGM = txtRGM.getText();
@@ -624,7 +628,8 @@ public class CadAlunoView extends JFrame {
 		btnConsultarCep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				RemoteDataModel data = null;
-				controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				String cep = ftmCep.getText();
 				data = controller.getData(cep);
 				
@@ -639,7 +644,8 @@ public class CadAlunoView extends JFrame {
 		// Metodos para Salvar Notas E Faltas
 		btnSalvarNotas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controllerNotas = new NotasFaltasController();
+				instance = ServiceLocator.getInstance();
+				controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 				
 				String RGM = txtNotasRGM.getText();
 				String disciplina = cbDisciplina.getSelectedItem().toString();
@@ -664,7 +670,8 @@ public class CadAlunoView extends JFrame {
 					
 				   String RGM = null;
 				   RGM = txtNotasRGM.getText();
-				   controllerNotas = new NotasFaltasController();
+				   instance = ServiceLocator.getInstance();
+				   controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 					
 				try {
 						
@@ -696,7 +703,8 @@ public class CadAlunoView extends JFrame {
 				String semestre = null;
 				String nota = null;
 				String falta = null;
-				controllerNotas = new NotasFaltasController();
+				instance = ServiceLocator.getInstance();
+				controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 
 				
 				RGM = txtNotasRGM.getText();
@@ -720,8 +728,8 @@ public class CadAlunoView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String RGM = null;
 				RGM = txtNotasRGM.getText();
-				
-				controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 				
 				try {
 					 controller.deletarDados(RGM);
@@ -739,7 +747,8 @@ public class CadAlunoView extends JFrame {
 				AlunoModel aluno;
 				String RGM = null;
 				RGM = txtNotasRGM.getText();
-				controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				
 				try {
 					aluno = controller.consultaDados(RGM);
@@ -769,7 +778,8 @@ public class CadAlunoView extends JFrame {
 		// MARK: BOTOES JBAR ALUNO
 		mntmSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				String periodo;
 				
 				String RGM = txtRGM.getText();
@@ -806,7 +816,8 @@ public class CadAlunoView extends JFrame {
 		
 		mntmAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					controller = new AlunoController();
+					instance = ServiceLocator.getInstance();
+					controller = (AlunoController) instance.uniqueInstance("AlunoController");
 					String periodo;
 					
 					String RGM = txtRGM.getText();
@@ -846,7 +857,8 @@ public class CadAlunoView extends JFrame {
 				 String RGM = null;
 				   RGM = txtRGM.getText();
 				   System.out.println(RGM);
-				   AlunoController controller = new AlunoController();
+				   instance = ServiceLocator.getInstance();
+				   controller = (AlunoController) instance.uniqueInstance("AlunoController");
 					
 					try {
 						
@@ -888,7 +900,8 @@ public class CadAlunoView extends JFrame {
 				String RGM = null;
 				RGM = txtRGM.getText();
 
-				AlunoController controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controller = (AlunoController) instance.uniqueInstance("AlunoController");
 				
 				try {
 					controller.deletarDados(RGM);
@@ -903,7 +916,8 @@ public class CadAlunoView extends JFrame {
 		// MARK: BOTOES JBAR NOTAS E FALTAS
 		mntmSalvar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controllerNotas = new NotasFaltasController();
+				instance = ServiceLocator.getInstance();
+				controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 				
 				String RGM = txtNotasRGM.getText();
 				String disciplina = cbDisciplina.getSelectedItem().toString();
@@ -929,7 +943,8 @@ public class CadAlunoView extends JFrame {
 				String semestre = null;
 				String nota = null;
 				String falta = null;
-				controllerNotas = new NotasFaltasController();
+				instance = ServiceLocator.getInstance();
+				controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 
 				
 				RGM = txtNotasRGM.getText();
@@ -952,7 +967,8 @@ public class CadAlunoView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				 String RGM = null;
 				   RGM = txtNotasRGM.getText();
-				   controllerNotas = new NotasFaltasController();
+				   instance = ServiceLocator.getInstance();
+				   controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 					
 				try {
 						
@@ -981,10 +997,11 @@ public class CadAlunoView extends JFrame {
 				String RGM = null;
 				RGM = txtNotasRGM.getText();
 				
-				controller = new AlunoController();
+				instance = ServiceLocator.getInstance();
+				controllerNotas = (NotasFaltasController) instance.uniqueInstance("NotasFaltasController");
 				
 				try {
-					 controller.deletarDados(RGM);
+					controllerNotas.deletarDados(RGM);
 						lerTabela();
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -1020,7 +1037,8 @@ public class CadAlunoView extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String alunoRGM = boletimTable.getValueAt(boletimTable.getSelectedRow(), 0).toString();
-				BoletimController controller = new BoletimController();
+				instance = ServiceLocator.getInstance();
+				BoletimController controller = (BoletimController) instance.uniqueInstance("BoletimController");
 				List<NotasFaltasModel> alunoSelecionado;
 				
 				try {
@@ -1061,7 +1079,8 @@ public class CadAlunoView extends JFrame {
 	// Filtra JTable, buscando pelo RGM, e retorna na JTable
 	public void buscarAluno(String RGM) throws Exception {
 		DefaultTableModel modelo = (DefaultTableModel) boletimTable.getModel();
-		BoletimController controller = new BoletimController();
+		instance = ServiceLocator.getInstance();
+		BoletimController controller = (BoletimController) instance.uniqueInstance("BoletimController");
 		modelo.setNumRows(0);
 		
 		for(AlunoModel aluno: controller.buscarAlunoController(RGM)) {
@@ -1077,18 +1096,19 @@ public class CadAlunoView extends JFrame {
 	// Busca todos os alunos
 	public void lerTabela() throws Exception {
 		DefaultTableModel modelo = (DefaultTableModel) boletimTable.getModel();
-		BoletimController controller = new BoletimController();
+		instance = ServiceLocator.getInstance();
+		BoletimController controller = (BoletimController) instance.uniqueInstance("BoletimController");
 		modelo.setNumRows(0);
 		for(AlunoModel aluno: controller.listarAlunoController()) {
-			
-			modelo.addRow(new Object[] {
-				aluno.getRGM(),
-				aluno.getNome(),
-				aluno.getCurso()
-			});
+				modelo.addRow(new Object[] {
+						aluno.getRGM(),
+						aluno.getNome(),
+						aluno.getCurso()
+				});
 		}
 	}
 	
+	// Metodo para abrir através do botao "Sobre", uma pagina web(No caso, o GitHub, com o README com detalhes breves da APP)
 	public static void openURL(String url) {
         String osName = System.getProperty("os.name");
         String browser = null;

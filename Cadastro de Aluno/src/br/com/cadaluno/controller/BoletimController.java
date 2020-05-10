@@ -7,15 +7,20 @@ import javax.swing.JOptionPane;
 
 import br.com.cadaluno.DAO.AlunoDAO;
 import br.com.cadaluno.DAO.BoletimDAO;
+import br.com.cadaluno.DI.ServiceLocator;
 import br.com.cadaluno.model.AlunoModel;
 import br.com.cadaluno.model.NotasFaltasModel;
 
 public class BoletimController {
 	List<AlunoModel> alunos = new ArrayList();
+	ServiceLocator instance;
+	BoletimDAO dao = null;
+
 
 	
 	public List<AlunoModel> listarAlunoController() throws Exception {
-			BoletimDAO dao = new BoletimDAO();
+			instance = ServiceLocator.getInstance();
+			dao = (BoletimDAO) instance.uniqueInstance("BoletimDAO");
 			alunos = dao.listarAlunoDAO();
 			
 			if(alunos != null) {
@@ -27,7 +32,8 @@ public class BoletimController {
 	}
 	
 	public List<AlunoModel> buscarAlunoController(String RGM) throws Exception {
-		BoletimDAO dao = new BoletimDAO();
+		instance = ServiceLocator.getInstance();
+		dao = (BoletimDAO) instance.uniqueInstance("BoletimDAO");
 		alunos = dao.buscarAlunoDAO(RGM);
 		
 		if(alunos != null) {
@@ -38,7 +44,8 @@ public class BoletimController {
 		}
 }
 	public List<NotasFaltasModel> detalhesAlunoController(String RGM) throws Exception {
-		BoletimDAO dao = new BoletimDAO();
+		instance = ServiceLocator.getInstance();
+		dao = (BoletimDAO) instance.uniqueInstance("BoletimDAO");
 		List<NotasFaltasModel> boletinsAluno = null;
 		boletinsAluno = dao.detalheAlunoDAO(RGM);
 		
